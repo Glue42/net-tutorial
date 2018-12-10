@@ -1,4 +1,5 @@
-/start
+start/*
+!start/*
 bin
 obj
 .vs
