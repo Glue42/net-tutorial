@@ -1,0 +1,12 @@
+{
+    "name":"Portfolio",
+    "title":"Portfolio",
+    "caption": "Application which shows the details about a client",
+    "type": "exe",
+    "details":{
+         "path":"%Add your path to this folder ->%/start/Portfolio/bin/Debug",
+         "command": "Portfolio.exe",
+         "width": 800,
+         "height": 450
+    }
+}

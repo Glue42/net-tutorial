@@ -1,0 +1,11 @@
+{
+    "title": "Clients",
+    "type": "exe",
+    "name": "clients",
+    "details": {
+        "path": "%Add your path to this folder ->%/start/Clients/bin/Debug",
+        "command": "Clients.exe",
+		"width":800,
+		"height":450
+    }
+}

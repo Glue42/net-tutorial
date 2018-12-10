@@ -1,0 +1,12 @@
+{
+    "name":"NotificationDetails",
+    "title":"Contacts",
+    "caption": "Opens when a notification is clicked",
+    "type": "exe",
+    "details":{
+         "path":"%Add your path to this folder ->%/start/NotificationDetails/bin/Debug",
+         "command": "NotificationDetails.exe",
+         "width": 510,
+         "height": 450
+    }
+}

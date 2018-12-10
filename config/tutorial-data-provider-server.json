@@ -1,0 +1,12 @@
+{
+    "name":"dataProvider",
+    "title":"DataProvider",
+    "caption": "Console application server which hosts the data for the tutorial",
+    "type": "exe",
+	"autoStart":true,
+	"hidden":true,
+    "details":{
+         "path":"%Add your path to this folder ->%/data/DataProvider",
+         "command": "DataProvider.exe"
+    }
+}

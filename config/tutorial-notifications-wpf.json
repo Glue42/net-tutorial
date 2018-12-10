@@ -1,0 +1,12 @@
+{
+    "name":"notificationsRaiser",
+    "title":"Manual notifications",
+    "caption": "You can manually raise notification from it",
+    "type": "exe",
+    "details":{
+         "path":"%Add your path to this folder ->%/start/Notifications/bin/Debug",
+         "command": "Notifications.exe",
+         "width": 300,
+         "height": 190
+    }
+}
