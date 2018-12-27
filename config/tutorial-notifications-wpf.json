@@ -1,6 +1,6 @@
 {
     "name":"notificationsRaiser",
-    "title":"Manual notifications",
+    "title":"Tutorial notifications",
     "caption": "You can manually raise notification from it",
     "type": "exe",
     "details":{

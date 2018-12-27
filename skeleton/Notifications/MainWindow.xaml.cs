@@ -28,7 +28,8 @@ namespace Notifications
                 Width = 300,
                 Height = 190
             };
-
+            var placement = new SwScreenPlacement();
+            placement.WithBounds(bounds);
             var id = Guid.NewGuid().ToString();
         }
 

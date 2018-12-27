@@ -12,7 +12,7 @@ namespace Portfolio
     /// </summary>
     public partial class MainWindow : Window
     {
-        private DataService dataProvider;
+        private DataService dataService;
 
         public MainWindow()
         {
@@ -23,21 +23,23 @@ namespace Portfolio
         private void Init()
         {
             App.Glue.Interop.ConnectionStatusChanged += Interop_ConnectionStatusChanged;
-            dataProvider = new DataService();
-            // 3.1 Interop data transfer
-            RegisterInteropMethod(dataProvider);
-            // 2. Contexts data transfer
+            dataService = new DataService();
+            // 3.1 Interop data transfer - You can invoke the RegisterInteropMethod method here
+            RegisterInteropMethod();
+            // 2. Contexts data transfer - You can invoke the SubsrcibeForContextUpdate method here
             //SubscribeForContextUpdate();
             RegisterToStickyWindows();
         }
 
         private void RegisterToStickyWindows()
         {
-            // 1. Try to get startup options passed from GD
+            //  1. Try to get startup options passed from GD. Create our default options if there aren't any passed options. Make your app a sticky flat window with title Clients
+            //  Hint - you can use the placement object for your default config and you can get the startup options from Glue.StickyWindows.GetStartupOptions();
+          
             var swOptions = App.Glue.StickyWindows.GetStartupOptions();
             if (swOptions == null)
             {
-                // 2. Create our default options if there aren't any passed options
+               
                 swOptions = new SwOptions();
                 var placement = new SwScreenPlacement();
                 var bounds = new SwBounds
@@ -50,7 +52,7 @@ namespace Portfolio
                     .WithId(Guid.NewGuid().ToString())
                     .WithPlacement(placement);
             }
-            // 3. Make your app a sticky flat window with title Portfolio
+           
             swOptions
                 .WithType(SwWindowType.Flat)
                 .WithTitle("Portfolio");
@@ -76,11 +78,11 @@ namespace Portfolio
             });
         }
 
-        private void RegisterInteropMethod(DataService dataProvider)
+        private void RegisterInteropMethod()
         {
-            dataProvider.OnDataReceived += DataProvider_OnDataReceived;
+            dataService.OnDataReceived += DataProvider_OnDataReceived;
             // 3.1 Register the interop service which will update the UI
-            App.Glue.Interop.RegisterService<IDataService>(dataProvider);
+            App.Glue.Interop.RegisterService<IDataService>(dataService);
         }
 
         private void Context_ContextUpdated(object sender, ContextUpdatedEventArgs e)
@@ -98,8 +100,8 @@ namespace Portfolio
         {
             Dispatcher.BeginInvoke(new Action(() =>
             {
-                ClientNameLabel.Content = dataProvider.CurrentClientName;
-                DetailsGrid.ItemsSource = dataProvider.CurrenData;
+                ClientNameLabel.Content = dataService;
+                DetailsGrid.ItemsSource = dataService.CurrenData;
             }));
         }
     }

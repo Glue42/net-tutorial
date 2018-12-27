@@ -1,11 +1,11 @@
 {
-    "name":"NotificationDetails",
-    "title":"Contacts",
+    "name":"Contacts",
+    "title":" Tutorial Contacts",
     "caption": "Opens when a notification is clicked",
     "type": "exe",
     "details":{
-         "path":"%Add your path to this folder ->%/start/NotificationDetails/bin/Debug",
-         "command": "NotificationDetails.exe",
+         "path":"%Add your path to this folder ->%/start/Contacts/bin/Debug",
+         "command": "Contacts.exe",
          "width": 510,
          "height": 450
     }

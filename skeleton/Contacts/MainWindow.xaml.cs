@@ -29,6 +29,8 @@ namespace Contacts
                 Width = 510,
                 Height = 450
             };
+            var placement = new SwScreenPlacement();
+            placement.WithBounds(bounds);
             var id = Guid.NewGuid().ToString();
         }
 

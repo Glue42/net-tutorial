@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio", "Portfolio\Port
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifications", "Notifications\Notifications.csproj", "{EA873F32-B344-4DD8-A21F-406423996816}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contacts", "NotificationDetails\Contacts.csproj", "{B7CD575D-5D49-4088-97BD-5D10D957E71B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contacts", "Contacts\Contacts.csproj", "{B7CD575D-5D49-4088-97BD-5D10D957E71B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

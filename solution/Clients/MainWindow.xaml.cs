@@ -31,11 +31,13 @@ namespace Clients
 
         private void RegisterToStickyWindows()
         {
-            // 1. Try to get startup options passed from GD
+            //  1. Try to get startup options passed from GD. Create our default options if there aren't any passed options. Make your app a sticky flat window with title Clients
+            //  Hint - you can use the placement object for your default config and you can get the startup options from Glue.StickyWindows.GetStartupOptions();
+
             var swOptions = App.Glue.StickyWindows.GetStartupOptions();
             if (swOptions == null)
             {
-                // 2. Create our default options if there aren't any passed options
+
                 swOptions = new SwOptions();
                 var placement = new SwScreenPlacement();
                 var bounds = new SwBounds
@@ -48,7 +50,7 @@ namespace Clients
                     .WithId(Guid.NewGuid().ToString())
                     .WithPlacement(placement);
             }
-            // 3. Make your app a sticky flat window with title Clients
+
             swOptions
                 .WithType(SwWindowType.Flat)
                 .WithTitle("Clients");

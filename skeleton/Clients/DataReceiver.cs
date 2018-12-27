@@ -13,7 +13,7 @@ namespace Clients
         public static IEnumerable<Client> GetClients()
         {
             // 6. Add a metric which records the url of the http server (Hint - Address metric will do the job)
-            // 6. Add a metric which will record how much time it took to get the response with the JSON (Hint - TimeSpan metric is great in this situations)
+            // 6. Add a metric which will record how much time it took to get the response with the JSON (Hint - check out the TimeSpan metric)
             // 6. Add a metric that logs exceptions (Hint - There is an Excepton metric)
             var metricsRepository = App.Glue.Metrics.MetricsRepository;
             var metricSystem = metricsRepository.Root.AddChild("Clients Http Requests", "Measuring the response times"); ;

@@ -1,6 +1,6 @@
 {
     "name":"Portfolio",
-    "title":"Portfolio",
+    "title":"Tutorial Portfolio",
     "caption": "Application which shows the details about a client",
     "type": "exe",
     "details":{

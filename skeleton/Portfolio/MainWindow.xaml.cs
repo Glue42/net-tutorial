@@ -40,7 +40,8 @@ namespace Portfolio
                 Width = 800,
                 Height = 450
             };
-
+            var placement = new SwScreenPlacement();
+            placement.WithBounds(bounds);
             var id = Guid.NewGuid().ToString();
         }
 

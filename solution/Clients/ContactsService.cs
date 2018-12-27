@@ -10,7 +10,7 @@ namespace Clients
         public void ShowContacts()
         {
             // 5. Start the Contacts app
-            var detailsApp = App.Glue.AppManager.Applications.FirstOrDefault((app) => app.Name == "NotificationDetails");
+            var detailsApp = App.Glue.AppManager.Applications.FirstOrDefault((app) => app.Name == "Contacts");
             var context = AppManagerContext.CreateNew();
 
             detailsApp?.Start(context).Wait();
