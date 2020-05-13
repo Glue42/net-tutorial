@@ -1,7 +1,7 @@
 ﻿using GnsDesktopManager.Model;
 using System;
 using System.Windows;
-using Tick42.StickyWindows;
+using Tick42.Windows;
 
 namespace Notifications
 {
@@ -14,22 +14,20 @@ namespace Notifications
         {
             InitializeComponent();
             RaiseButton.Click += RaiseButton_Click;
-            RegisterToStickyWindows();
+            RegisterToGlueWindows();
         }
 
-        private void RegisterToStickyWindows()
+        private void RegisterToGlueWindows()
         {
             // 1. Try to get startup options passed from GD
             // Create our default options if there aren't any passed options
-            // Make your app a sticky flat window with title Notifications
+            // Make your app a Glue flat window with title Notifications
 
-            var bounds = new SwBounds
+            var bounds = new GlueWindowBounds
             {
                 Width = 300,
                 Height = 190
             };
-            var placement = new SwScreenPlacement();
-            placement.WithBounds(bounds);
             var id = Guid.NewGuid().ToString();
         }
 

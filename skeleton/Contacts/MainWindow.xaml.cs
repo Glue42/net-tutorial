@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
-using Tick42.StickyWindows;
+using Tick42.Windows;
 
 namespace Contacts
 {
@@ -14,23 +14,21 @@ namespace Contacts
         public MainWindow()
         {
             InitializeComponent();
-            RegisterToStickyWindows();
+            RegisterToGlueWindows();
             ContactInfoGrid.ItemsSource = GetContacts();
         }
 
-        private void RegisterToStickyWindows()
+        private void RegisterToGlueWindows()
         {
             // 1. Try to get startup options passed from GD
             // Create our default options if there aren't any passed options
-            // Make your app a sticky flat window with title Contacts
+            // Make your app a Glue flat window with title Contacts
 
-            var bounds = new SwBounds
+            var bounds = new GlueWindowBounds
             {
                 Width = 510,
                 Height = 450
             };
-            var placement = new SwScreenPlacement();
-            placement.WithBounds(bounds);
             var id = Guid.NewGuid().ToString();
         }
 

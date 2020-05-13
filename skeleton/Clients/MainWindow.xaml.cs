@@ -4,7 +4,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
-using Tick42.StickyWindows;
+using Tick42.Windows;
 
 namespace Clients
 {
@@ -25,22 +25,20 @@ namespace Clients
             ClientsList.MouseDoubleClick += ClientsList_MouseDoubleClick;
             App.Glue.Interop.ConnectionStatusChanged += Interop_ConnectionStatusChanged;
             // 4.2 This is an appropriate place to register your service
-            RegisterToStickyWindows();
+            RegisterToGlueWindows();
         }
 
-        private void RegisterToStickyWindows()
+        private void RegisterToGlueWindows()
         {
             // 1. Try to get startup options passed from GD
             // Create our default options if there aren't any passed options
-            // Make your app a sticky flat window with title Clients
+            // Make your app a Glue flat window with title Clients
 
-            var bounds = new SwBounds
+            var bounds = new GlueWindowBounds
             {
                 Width = 800,
                 Height = 450
             };
-            var placement = new SwScreenPlacement();
-            placement.WithBounds(bounds);
             var id = Guid.NewGuid().ToString();
         }
 
