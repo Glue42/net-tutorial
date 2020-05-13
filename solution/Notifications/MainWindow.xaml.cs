@@ -1,7 +1,7 @@
 ﻿using GnsDesktopManager.Model;
 using System;
 using System.Windows;
-using Tick42.StickyWindows;
+using Tick42.Windows;
 
 namespace Notifications
 {
@@ -14,35 +14,34 @@ namespace Notifications
         {
             InitializeComponent();
             RaiseButton.Click += RaiseButton_Click;
-            RegisterToStickyWindows();
+            RegisterToGlueWindows();
         }
 
-        private void RegisterToStickyWindows()
+        private void RegisterToGlueWindows()
         {
-            //  1. Try to get startup options passed from GD. Create our default options if there aren't any passed options. Make your app a sticky flat window with title Clients
-            //  Hint - you can use the placement object for your default config and you can get the startup options from Glue.StickyWindows.GetStartupOptions();
-            var swOptions = App.Glue.StickyWindows.GetStartupOptions();
+            //  1. Try to get startup options passed from GD. Create our default options if there aren't any passed options. Make your app a Glue flat window with title Clients
+            //  Hint - you can use the placement object for your default config and you can get the startup options from Glue.GlueWindows.GetStartupOptions();
+            var swOptions = App.Glue.GlueWindows.GetStartupOptions();
             if (swOptions == null)
             {
-                
-                swOptions = new SwOptions();
-                var placement = new SwScreenPlacement();
-                var bounds = new SwBounds
+
+                swOptions = new GlueWindowOptions();
+
+                var bounds = new GlueWindowBounds
                 {
                     Width = 300,
                     Height = 190
                 };
-                placement.WithBounds(bounds);
                 swOptions
                     .WithId(Guid.NewGuid().ToString())
-                    .WithPlacement(placement);
+                    .WithScreenBounds(bounds);
             }
-           
+
             swOptions
-                .WithType(SwWindowType.Flat)
+                .WithType(GlueWindowType.Flat)
                 .WithTitle("Notifications");
 
-            App.Glue.StickyWindows.RegisterWindow(this, swOptions);
+            App.Glue.GlueWindows.RegisterWindow(this, swOptions);
         }
 
         private void RaiseButton_Click(object sender, RoutedEventArgs e)

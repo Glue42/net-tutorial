@@ -3,7 +3,7 @@ using System;
 using System.Windows;
 using System.Windows.Media;
 using Tick42.Contexts;
-using Tick42.StickyWindows;
+using Tick42.Windows;
 
 namespace Portfolio
 {
@@ -27,21 +27,19 @@ namespace Portfolio
             // 3.1 Interop data transfer
             // 2. Contexts data transfer
         
-            RegisterToStickyWindows();
+            RegisterToGlueWindows();
         }
 
-        private void RegisterToStickyWindows()
+        private void RegisterToGlueWindows()
         {
             // 1. Try to get startup options passed from GD
             // Create our default options if there aren't any passed options
-            // Make your app a sticky flat window with title Portfolio
-            var bounds = new SwBounds
+            // Make your app a Glue flat window with title Portfolio
+            var bounds = new GlueWindowBounds
             {
                 Width = 800,
                 Height = 450
             };
-            var placement = new SwScreenPlacement();
-            placement.WithBounds(bounds);
             var id = Guid.NewGuid().ToString();
         }
 
