@@ -4,7 +4,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
-using Tick42.StickyWindows;
+using Tick42.Windows;
 
 namespace Clients
 {
@@ -34,28 +34,28 @@ namespace Clients
             //  1. Try to get startup options passed from GD. Create our default options if there aren't any passed options. Make your app a sticky flat window with title Clients
             //  Hint - you can use the placement object for your default config and you can get the startup options from Glue.StickyWindows.GetStartupOptions();
 
-            var swOptions = App.Glue.StickyWindows.GetStartupOptions();
-            if (swOptions == null)
+            var gwOptions = App.Glue.GlueWindows.GetStartupOptions();
+            if (gwOptions == null)
             {
 
-                swOptions = new SwOptions();
-                var placement = new SwScreenPlacement();
-                var bounds = new SwBounds
+                gwOptions = new GlueWindowOptions();
+                var placement = new GlueWindowScreenPlacement();
+                var bounds = new GlueWindowBounds
                 {
                     Width = 800,
                     Height = 450
                 };
                 placement.WithBounds(bounds);
-                swOptions
+                gwOptions
                     .WithId(Guid.NewGuid().ToString())
                     .WithPlacement(placement);
             }
 
-            swOptions
-                .WithType(SwWindowType.Flat)
+            gwOptions
+                .WithType(GlueWindowType.Flat)
                 .WithTitle("Clients");
 
-            App.Glue.StickyWindows.RegisterWindow(this, swOptions);
+            App.Glue.GlueWindows.RegisterWindow(this, gwOptions);
         }
 
         private void Interop_ConnectionStatusChanged(object sender, Tick42.InteropStatusEventArgs e)
