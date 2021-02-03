@@ -1,7 +1,7 @@
 ﻿using GnsDesktopManager.Model;
 using System;
 using System.Windows;
-using Tick42.StickyWindows;
+using Tick42.Windows;
 
 namespace Notifications
 {
@@ -21,28 +21,28 @@ namespace Notifications
         {
             //  1. Try to get startup options passed from GD. Create our default options if there aren't any passed options. Make your app a sticky flat window with title Clients
             //  Hint - you can use the placement object for your default config and you can get the startup options from Glue.StickyWindows.GetStartupOptions();
-            var swOptions = App.Glue.StickyWindows.GetStartupOptions();
-            if (swOptions == null)
+            var gwOptions = App.Glue.GlueWindows.GetStartupOptions();
+            if (gwOptions == null)
             {
                 
-                swOptions = new SwOptions();
-                var placement = new SwScreenPlacement();
-                var bounds = new SwBounds
+                gwOptions = new GlueWindowOptions();
+                var placement = new GlueWindowScreenPlacement();
+                var bounds = new GlueWindowBounds
                 {
                     Width = 300,
                     Height = 190
                 };
                 placement.WithBounds(bounds);
-                swOptions
+                gwOptions
                     .WithId(Guid.NewGuid().ToString())
                     .WithPlacement(placement);
             }
            
-            swOptions
-                .WithType(SwWindowType.Flat)
+            gwOptions
+                .WithType(GlueWindowType.Flat)
                 .WithTitle("Notifications");
 
-            App.Glue.StickyWindows.RegisterWindow(this, swOptions);
+            App.Glue.GlueWindows.RegisterWindow(this, gwOptions);
         }
 
         private void RaiseButton_Click(object sender, RoutedEventArgs e)
