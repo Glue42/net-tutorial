@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
-using Tick42.StickyWindows;
+using Tick42.Windows;
 
 namespace Contacts
 {
@@ -24,12 +24,12 @@ namespace Contacts
             // Create our default options if there aren't any passed options
             // Make your app a sticky flat window with title Contacts
 
-            var bounds = new SwBounds
+            var bounds = new GlueWindowBounds
             {
-                Width = 510,
+                Width = 800,
                 Height = 450
             };
-            var placement = new SwScreenPlacement();
+            var placement = new GlueWindowScreenPlacement();
             placement.WithBounds(bounds);
             var id = Guid.NewGuid().ToString();
         }
