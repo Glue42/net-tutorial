@@ -4,7 +4,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
-using Tick42.StickyWindows;
+using Tick42.Windows;
 
 namespace Clients
 {
@@ -34,14 +34,13 @@ namespace Clients
             // Create our default options if there aren't any passed options
             // Make your app a sticky flat window with title Clients
 
-            var bounds = new SwBounds
+            var bounds = new GlueWindowBounds
             {
-                Width = 800,
-                Height = 450
+                Width = 1200,
+                Height = 700,
             };
-            var placement = new SwScreenPlacement();
+            var placement = new GlueWindowScreenPlacement();
             placement.WithBounds(bounds);
-            var id = Guid.NewGuid().ToString();
         }
 
         private void Interop_ConnectionStatusChanged(object sender, Tick42.InteropStatusEventArgs e)
